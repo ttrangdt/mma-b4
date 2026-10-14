@@ -142,20 +142,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 28,
   },
-  iconCircle: {
-    width: 64,
-    height: 64,
-    borderRadius: 32,
-    backgroundColor: '#6366F1',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 12,
-    shadowColor: '#6366F1',
-    shadowOffset: { width: 0, height: 6 },
-    shadowOpacity: 0.3,
-    shadowRadius: 10,
-    elevation: 6,
-  },
   headerEmoji: {
     fontSize: 28,
   },
@@ -164,13 +150,6 @@ const styles = StyleSheet.create({
     fontWeight: '800',
     color: '#0F172A',
     letterSpacing: 0.3,
-  },
-  subtitle: {
-    fontSize: 14,
-    color: '#64748B',
-    marginTop: 6,
-    textAlign: 'center',
-    lineHeight: 20,
   },
   feedbackCard: {
     backgroundColor: '#ECFDF5',
@@ -184,10 +163,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: 4,
-  },
-  feedbackDot: {
-    fontSize: 10,
-    marginRight: 6,
   },
   feedbackTitle: {
     fontSize: 13,
