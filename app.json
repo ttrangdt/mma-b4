@@ -9,7 +9,7 @@
       "supportsTablet": true
     },
     "android": {
-      "package": "com.tenlop.mssv.buildapk",
+      "package": "com.se1990nj.he195077.buildapk",
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE"
       }
