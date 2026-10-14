@@ -46,6 +46,7 @@ export default function App() {
 
     setupNotifications();
 
+    // Lắng nghe khi người dùng bấm vào thông báo
     responseListener.current = Notifications.addNotificationResponseReceivedListener((response) => {
       const data = response.notification.request.content.data;
       if (data && data.text) {
@@ -71,7 +72,7 @@ export default function App() {
 
     await Notifications.scheduleNotificationAsync({
       content: {
-        title: '🔔 Thông báo mới',
+        title: '🔔 Thông báo',
         body: message,
         data: { text: message },
       },
@@ -99,9 +100,9 @@ export default function App() {
               <View style={styles.iconCircle}>
                 <Text style={styles.headerEmoji}>🔔</Text>
               </View>
-              <Text style={styles.title}>Notification Hub</Text>
+              <Text style={styles.title}>Notification App</Text>
               <Text style={styles.subtitle}>
-                Gửi thông báo cục bộ và tự động điền lại khi chạm
+                Nhập nội dung, bắn thông báo và chạm để nhận lại
               </Text>
             </View>
 
@@ -112,30 +113,16 @@ export default function App() {
               onSend={sendNotification}
             />
 
-            {/* Status & Response Feedback */}
+            {/* Status & Response Feedback khi click vào thông báo */}
             {lastReceivedText ? (
               <View style={styles.feedbackCard}>
                 <View style={styles.feedbackHeader}>
                   <Text style={styles.feedbackDot}>🟢</Text>
-                  <Text style={styles.feedbackTitle}>Đã nhận từ click thông báo:</Text>
+                  <Text style={styles.feedbackTitle}>Đã lấy từ thông báo vừa bấm:</Text>
                 </View>
                 <Text style={styles.feedbackContent}>"{lastReceivedText}"</Text>
               </View>
             ) : null}
-
-            {/* Guide */}
-            <View style={styles.guideCard}>
-              <Text style={styles.guideTitle}>💡 Hướng dẫn kiểm tra:</Text>
-              <Text style={styles.guideStep}>
-                1. Nhập chữ hoặc bấm chọn gợi ý ở trên.
-              </Text>
-              <Text style={styles.guideStep}>
-                2. Nhấn nút <Text style={styles.boldText}>Bắn Thông Báo Ngay</Text>.
-              </Text>
-              <Text style={styles.guideStep}>
-                3. Chạm vào thông báo xuất hiện trên màn hình để tự động đổ lại nội dung vào ô nhập.
-              </Text>
-            </View>
           </ScrollView>
         </TouchableWithoutFeedback>
       </KeyboardAvoidingView>
@@ -146,49 +133,49 @@ export default function App() {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: '#EEF2F6',
+    backgroundColor: '#F8FAFC',
   },
   keyboardContainer: {
     flex: 1,
   },
   scrollContent: {
     paddingHorizontal: 20,
-    paddingTop: 30,
-    paddingBottom: 40,
+    paddingTop: 40,
+    paddingBottom: 30,
+    justifyContent: 'center',
   },
   header: {
     alignItems: 'center',
-    marginBottom: 24,
+    marginBottom: 28,
   },
   iconCircle: {
-    width: 68,
-    height: 68,
-    borderRadius: 34,
+    width: 64,
+    height: 64,
+    borderRadius: 32,
     backgroundColor: '#6366F1',
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 12,
     shadowColor: '#6366F1',
     shadowOffset: { width: 0, height: 6 },
-    shadowOpacity: 0.35,
+    shadowOpacity: 0.3,
     shadowRadius: 10,
-    elevation: 8,
+    elevation: 6,
   },
   headerEmoji: {
-    fontSize: 32,
+    fontSize: 28,
   },
   title: {
-    fontSize: 26,
+    fontSize: 24,
     fontWeight: '800',
-    color: '#1E293B',
-    letterSpacing: 0.5,
+    color: '#0F172A',
+    letterSpacing: 0.3,
   },
   subtitle: {
     fontSize: 14,
     color: '#64748B',
     marginTop: 6,
     textAlign: 'center',
-    paddingHorizontal: 20,
     lineHeight: 20,
   },
   feedbackCard: {
@@ -197,7 +184,7 @@ const styles = StyleSheet.create({
     borderColor: '#A7F3D0',
     borderRadius: 16,
     padding: 16,
-    marginBottom: 20,
+    marginTop: 20,
   },
   feedbackHeader: {
     flexDirection: 'row',
@@ -218,28 +205,5 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#047857',
     marginTop: 2,
-  },
-  guideCard: {
-    backgroundColor: '#F8FAFC',
-    borderRadius: 18,
-    padding: 16,
-    borderWidth: 1,
-    borderColor: '#E2E8F0',
-  },
-  guideTitle: {
-    fontSize: 14,
-    fontWeight: '700',
-    color: '#334155',
-    marginBottom: 8,
-  },
-  guideStep: {
-    fontSize: 13,
-    color: '#64748B',
-    lineHeight: 20,
-    marginBottom: 4,
-  },
-  boldText: {
-    fontWeight: '700',
-    color: '#4F46E5',
   },
 });
