@@ -72,7 +72,7 @@ export default function App() {
 
     await Notifications.scheduleNotificationAsync({
       content: {
-        title: '🔔 Thông báo',
+        title: ' Thông báo',
         body: message,
         data: { text: message },
       },
@@ -97,13 +97,8 @@ export default function App() {
           >
             {/* Header */}
             <View style={styles.header}>
-              <View style={styles.iconCircle}>
-                <Text style={styles.headerEmoji}>🔔</Text>
-              </View>
+              <Text style={styles.headerEmoji}>🔔</Text>
               <Text style={styles.title}>Notification App</Text>
-              <Text style={styles.subtitle}>
-                Nhập nội dung, bắn thông báo và chạm để nhận lại
-              </Text>
             </View>
 
             {/* Notification Input & Action Card Component */}
@@ -117,7 +112,6 @@ export default function App() {
             {lastReceivedText ? (
               <View style={styles.feedbackCard}>
                 <View style={styles.feedbackHeader}>
-                  <Text style={styles.feedbackDot}>🟢</Text>
                   <Text style={styles.feedbackTitle}>Đã lấy từ thông báo vừa bấm:</Text>
                 </View>
                 <Text style={styles.feedbackContent}>"{lastReceivedText}"</Text>
